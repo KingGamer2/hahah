@@ -29,7 +29,7 @@ message.member.voiceChannel.join();
 
 
 
-const jackeo = ['303225158473220098']; //Jackeo  ?????
+const jackeo = ['352832614190809089']; //Jackeo  ?????
 client.on('message', message => { 
 var prefix = "%"; 
   if (message.author.bot) return; 
