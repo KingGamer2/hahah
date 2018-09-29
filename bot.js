@@ -20,7 +20,7 @@ client.on('message', msg => {
 
 
 client.on('message', message => {
- if(message.content.startsWith("!come")) {
+ if(message.content.startsWith("come")) {
 message.member.voiceChannel.join();
 }
 });
@@ -29,20 +29,30 @@ message.member.voiceChannel.join();
 
 
 
-client.on('message', message => {
-  if (message.author.bot) return;
+const jackeo = ['303225158473220098']; //Jackeo  ?????
+client.on('message', message => { 
+var prefix = "%"; 
+  if (message.author.bot) return; 
   if (!message.content.startsWith(prefix)) return;
-
-  let command = message.content.split(" ")[0];
+    var argresult = message.content.split(` `).slice(1).join(' '); 
+      if (!jackeo.includes(message.author.id)) return; 
+  let command = message.content.split(" ")[0]; 
   command = command.slice(prefix.length);
-
   let args = message.content.split(" ").slice(1);
-
-  if (command == "say") {
-   message.channel.sendMessage(args.join("  "))
-   message.delete()
+  if (command === "say")  { 
+  if(!message.channel.guild) return message.reply('** __This command only for servers?__  **'); 
+          message.delete() 
+    message.channel.sendMessage(args.join(" ")).catch(console.error); 
   }
- });
+if (command == "emb")    { 
+  if(!message.channel.guild) return message.reply('** __This command only for servers?__  **'); 
+    let say = new Discord.RichEmbed() 
+    .setDescription(args.join("  ")) 
+    .setColor("RANDOM") 
+    message.channel.sendEmbed(say); 
+    message.delete(); 
+  } 
+});
 
 
 
