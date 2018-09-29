@@ -20,7 +20,7 @@ client.on('message', msg => {
 
 
 client.on('message', message => {
- if(message.content.startsWith("come")) {
+ if(message.content.startsWith("!come")) {
 message.member.voiceChannel.join();
 }
 });
