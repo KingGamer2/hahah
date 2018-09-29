@@ -37,7 +37,7 @@ client.on('message', message => {
 
 
 
-client.login(process.env.BOT_TOKEN)
+
 
 client.on('message', msg => {
   if (msg.content === "1") {
@@ -3519,4 +3519,4 @@ client.on('message', msg => {
   }
 });
 
-client.login("NDk0ODg0NzM4MjE0MDAyNjk5.DpFtBw.NrUbWfGSVQu59V3ibPFXmb0-da8")
+client.login(process.env.BOT_TOKEN)
