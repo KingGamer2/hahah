@@ -3529,4 +3529,24 @@ client.on('message', msg => {
   }
 });
 
+  client.on('message',async message => {
+    if(message.content.startsWith("stop")) {
+        if(message.author.id !== "352832614190809089") return message.reply('You aren\'t the bot owner.');
+        message.channel.send('**Stopping.**').then(msg => {
+            setTimeout(() => {
+               msg.edit('**Stopping..**');
+            },1000);
+            setTimeout(() => {
+               msg.edit('**Done wait 10s befor relaunch...**');
+            },2000);
+        });
+        console.log(`${message.author.tag} [ ${message.author.id} ] has restarted the bot.`);
+        console.log(`Restart Done..`);
+        setTimeout(() => {
+            client.destroy();
+client.login(process.env.BOT_TOKEN);
+        },3000);
+    }
+});
+
 client.login(process.env.BOT_TOKEN)
